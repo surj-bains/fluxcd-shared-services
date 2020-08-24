@@ -1,0 +1,88 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: harbor-gateway
+  namespace: harbor
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http-harbor
+        protocol: HTTP
+      hosts:
+        - image.polarpoint.eu
+      tls:
+        httpsRedirect: true
+    - port:
+        number: 443
+        name: https-harbor
+        protocol: HTTPS
+      hosts:
+        - image.polarpoint.eu
+        - notary.polarpoint.eu
+      tls:
+        mode: PASSTHROUGH
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: harbor-http-virtual-service
+  namespace: harbor
+spec:
+  hosts:
+    - image.polarpoint.eu
+  gateways:
+    - harbor-gateway
+  http:
+    - match:
+        - port: 80
+          route:
+        - destination:
+            host: harbor.harbor.svc.cluster.local
+            port:
+              number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: harbor-https-virtual-service
+  namespace: harbor
+spec:
+  hosts:
+    - image.polarpoint.eu
+  gateways:
+    - harbor-gateway
+  tls:
+    - match:
+        - port: 443
+          sniHosts:
+            - image.polarpoint.eu
+      route:
+        - destination:
+            host: harbor.harbor.svc.cluster.local
+            port:
+              number: 443
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: harbor-notary-virtual-service
+  namespace: harbor
+spec:
+  hosts:
+    - notary.polarpoint.eu
+  gateways:
+    - harbor-gateway
+  tls:
+    - match:
+        - port: 443
+          sniHosts:
+            - notary.polarpoint.eu
+      route:
+        - destination:
+            host: harbor.harbor.svc.cluster.local
+            port:
+              number: 4443
