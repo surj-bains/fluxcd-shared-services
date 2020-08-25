@@ -63,3 +63,6 @@ git:
   operator:
     namespace: "flux"
     withHelm: true
+  bootstrapProfile:
+    source: git@github.com:polarpoint-io/fluxcd-quick-start-shared-services-base
+    revision: master

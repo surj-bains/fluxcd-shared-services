@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: harbor
   namespace: harbor
-  annotations:
-    flux.weave.works/automated: "false"
 spec:
   releaseName: harbor
   targetNamespace: harbor

@@ -1,0 +1,17 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: argocd
+  namespace: continuous-delivery
+spec:
+  releaseName: argocd
+  targetNamespace: continuous-delivery
+  chart:
+    repository: https://argoproj.github.io/argo-helm
+    name: argocd
+    version: 2.6.0
+  values:
+    env:
+      AWS_REGION: eu-west-1
+      AWS_DEFAULT_REGION: eu-west-1

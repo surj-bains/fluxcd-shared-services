@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: jenkins
   namespace: continuous-integration
-  annotations:
-    flux.weave.works/automated: "false"
 spec:
   releaseName: jenkins
   targetNamespace: continuous-integration
