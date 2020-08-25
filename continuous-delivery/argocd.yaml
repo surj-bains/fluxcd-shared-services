@@ -12,9 +12,6 @@ spec:
     name: argo-cd
     version: 2.6.0
   values:
-    ## ArgoCD configuration
-    ## Ref: https://github.com/argoproj/argo-cd
-    ##
     nameOverride: argocd
     fullnameOverride: ""
 
