@@ -6,6 +6,8 @@ installed and configured by [eksctl](https://eksctl.io) through GitOps. See http
 
 ## Components
 
-- Releases for FluxCD HelmReleases
-- Workloads for Kubernetes workloads
+- flux workloads and resources provided by FluxCD
+- base default and base resources
+- releases for FluxCD HelmReleases
+- workloads for Kubernetes workloads
 
