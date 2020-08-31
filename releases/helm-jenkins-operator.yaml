@@ -31,7 +31,7 @@ spec:
       # namespace is the namespace where the resources will be deployed
       # It's not recommended to use default namespace
       # Create new namespace for jenkins (called e.g. jenkins)
-      namespace: jenkins
+      namespace: continuous-integration
 
       # labels are injected into metadata labels field
       labels: {}
