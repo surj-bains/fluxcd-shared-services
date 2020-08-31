@@ -1,0 +1,16 @@
+clusterName: shared-services-eks
+## Auto Discover awsRegion from ec2metadata, set this to true and omit awsRegion when ec2metadata is available.
+autoDiscoverAwsRegion: true
+## Auto Discover awsVpcID from ec2metadata, set this to true and omit awsVpcID: " when ec2metadata is available.
+autoDiscoverAwsVpcID: true
+scope:
+  ## If provided, the ALB ingress controller will only act on Ingress resources annotated with this class
+  ## Ref: https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/master/docs/guide/controller/config.md#limiting-ingress-class
+  ingressClass: alb
+  ## If true, the ALB ingress controller will only act on Ingress resources in a single namespace
+  ## Default: false; watch all namespaces
+  singleNamespace: false
+  ## If scope.singleNamespace=true, the ALB ingress controller will only act on Ingress resources in this namespace
+  ## Ref: https://github.com/kubernetes-sigs/aws-alb-ingress-controller/blob/master/docs/guide/controller/config.md#limiting-namespaces
+  ## Default: namespace of the ALB ingress controller
+  watchNamespace: ""
