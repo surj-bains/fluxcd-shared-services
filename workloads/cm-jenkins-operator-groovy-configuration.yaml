@@ -3,6 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: jenkins-operator-groovy-configuration
+  namespace: continuous-integration
 data:
   1-configure-theme.groovy: |
     import jenkins.*
