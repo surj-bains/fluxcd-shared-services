@@ -18,6 +18,10 @@ See https://github.com/polarpoint-io/fluxcd-quick-start-shared-services-base for
 - base default and base resources
 
 ## releases for FluxCD HelmReleases
+- aws alb ingress
+- certificate manager
+- external secrets
 
 ## workloads for Kubernetes workloads
+- argo-cd
 
