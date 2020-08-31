@@ -9,7 +9,7 @@ spec:
   chart:
     repository: https://raw.githubusercontent.com/jenkinsci/kubernetes-operator/master/chart/
     name: jenkins-operator
-    version: 5.2.0
+    version: 0.3.4
   values:
     # Jenkins Operator Helm chart
 
