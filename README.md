@@ -9,13 +9,15 @@ eksctl create cluster  -f cluster.yaml
 
 
 
-See https://github.com/polarpoint-io/fluxcd-quick-start-shared-services-base for the quickstart base kubernetes workloads for monitoring, cluster autoscaling, fluentd. and pulled into the base
+See https://github.com/polarpoint-io/fluxcd-quick-start-shared-services-base for the quickstart base kubernetes workloads for monitoring, cluster autoscaling, fluentd and application load balancer before being pulled into /base repository
 
 
 ## Components
 
 - flux workloads and resources provided by FluxCD
 - base default and base resources
-- releases for FluxCD HelmReleases
-- workloads for Kubernetes workloads
+
+## releases for FluxCD HelmReleases
+
+## workloads for Kubernetes workloads
 
