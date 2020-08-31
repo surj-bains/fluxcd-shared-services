@@ -1,0 +1,58 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-operator-jcasc-configuration
+data:
+  1-clouds.yaml: |
+    jenkins:
+      systemMessage: " Seville Software Factory Continuous Integration. </b></p>"
+      numExecutors: 12
+      location:
+        url: ""
+      globalLibraries:
+        libraries:
+          - defaultVersion: "master"
+            name: "pipeline-library"
+            retriever:
+              modernSCM:
+                scm:
+                  github:
+                    apiUri: "https://github.com/api/v3"
+                    credentialsId: "bainss-pat-github"
+                    id: "https://github.com"
+                    repoOwner: "polarpoint-io"
+                    repository: "groovy-jenkins-shared-library"
+      clouds:
+      - kubernetes:
+         containerCap: 10
+         containerCapStr: "10"
+         maxRequestsPerHost: 32
+         maxRequestsPerHostStr: "32"
+         name: "kubernetes"
+         templates:
+         - hostNetwork: false
+           label: "gradle-6-0-1"
+           name: "gradle-6-0-1"
+           yaml: |-
+             apiVersion: v1
+             kind: Pod
+             spec:
+               containers:
+               - name: gradle-6-0-1
+                 image: amd64/gradle:6.4.0-jdk11
+                 command:
+                 - cat
+                 tty: true
+           yamlMergeStrategy: "override"
+           yamls:
+           - |-
+             apiVersion: v1
+             kind: Pod
+             spec:
+               containers:
+               - name: gradle-6-0-1
+                 image: amd64/gradle:6.4.0-jdk11
+                 command:
+                 - cat
+                 tty: true
