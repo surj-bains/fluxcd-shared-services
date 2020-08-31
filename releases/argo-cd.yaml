@@ -2,14 +2,14 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: external-secrets
-  namespace: default
+  name: argo-cd
+  namespace: argocd
 spec:
-  releaseName: external-secrets
+  releaseName: argo-cd
   chart:
-    repository: https://godaddy.github.io/kubernetes-external-secrets/
-    name: kubernetes-external-secrets
-    version: 5.2.0
+    repository: https://argoproj.github.io/argo-helm
+    name: argo-cd
+    version: 2.6.2
   values:
     ## ArgoCD configuration
     ## Ref: https://github.com/argoproj/argo-cd
