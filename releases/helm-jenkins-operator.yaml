@@ -295,9 +295,9 @@ spec:
       - name: mailer
         version: "1.32"
       - name: matrix-auth
-        version: "2.6.1"
+        version: "2.6.2"
       - name: matrix-project
-        version: "1.16"
+        version: "1.17"
       - name: maven-plugin
         version: "3.6"
       - name: mercurial
@@ -397,7 +397,7 @@ spec:
       - name: workflow-support
         version: "3.5"
       - name: zap-pipeline
-        version: "1.9"
+        version: "1.1.0"
       - name: zapper
         version: "1.0.7"
 
