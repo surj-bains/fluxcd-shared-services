@@ -408,6 +408,8 @@ spec:
       #
       seedJobs:
       - id: jenkins-operator
+        credentialType: usernamePassword
+        credentialID: github-personal-access-token      
         targets: "*/**.groovy"
         description: "Jenkins Operator seeding repository"
         repositoryBranch: master
