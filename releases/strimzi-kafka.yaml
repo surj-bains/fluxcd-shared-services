@@ -9,4 +9,4 @@ spec:
   chart:
     repository: https://strimzi.io/charts/
     name: strimzi-kafka-operator
-    version: 0.1.0
+    version: 0.19.0
