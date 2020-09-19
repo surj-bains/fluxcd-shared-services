@@ -9,7 +9,7 @@ spec:
   chart:
     repository: https://helm.traefik.io/traefik
     name: traefik
-    version: 2.6.2
+    version: 9.2.1
   values:
     # Default values for Traefik
     image:
