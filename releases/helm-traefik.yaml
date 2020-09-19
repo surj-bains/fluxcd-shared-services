@@ -82,19 +82,19 @@ spec:
     # Add volumes to the traefik pod.
     # This can be used to mount a cert pair or a configmap that holds a config.toml file.
     # After the volume has been mounted, add the configs into traefik by using the `additionalArguments` list below, eg:
-    
-additionalArguments:
-  - "--accesslog=true"
-  - "--accesslog.format=json"
-  - "--accesslog.fields.defaultmode=keep"
-  - "--accesslog.fields.headers.defaultmode=keep"
-  - "--metrics.prometheus=true"
-  - "--metrics.prometheus.entryPoint=metrics"
-  - "--metrics.prometheus.addEntryPointsLabels=true"
-  - "--metrics.prometheus.addServicesLabels=true"
-  - "--entryPoints.metrics.address=:8082"
-  - "--metrics.prometheus.entryPoint=metrics"
-  
+
+    additionalArguments:
+      - "--accesslog=true"
+      - "--accesslog.format=json"
+      - "--accesslog.fields.defaultmode=keep"
+      - "--accesslog.fields.headers.defaultmode=keep"
+      - "--metrics.prometheus=true"
+      - "--metrics.prometheus.entryPoint=metrics"
+      - "--metrics.prometheus.addEntryPointsLabels=true"
+      - "--metrics.prometheus.addServicesLabels=true"
+      - "--entryPoints.metrics.address=:8082"
+      - "--metrics.prometheus.entryPoint=metrics"
+
 
     volumes: []
     # - name: public-cert
@@ -344,4 +344,3 @@ additionalArguments:
 
     podSecurityContext:
       fsGroup: 65532
-    
