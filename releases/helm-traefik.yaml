@@ -83,17 +83,6 @@ spec:
     # This can be used to mount a cert pair or a configmap that holds a config.toml file.
     # After the volume has been mounted, add the configs into traefik by using the `additionalArguments` list below, eg:
 
-    additionalArguments:
-      - "--accesslog=true"
-      - "--accesslog.format=json"
-      - "--accesslog.fields.defaultmode=keep"
-      - "--accesslog.fields.headers.defaultmode=keep"
-      - "--metrics.prometheus=true"
-      - "--metrics.prometheus.entryPoint=metrics"
-      - "--metrics.prometheus.addEntryPointsLabels=true"
-      - "--metrics.prometheus.addServicesLabels=true"
-      - "--entryPoints.metrics.address=:8082"
-      - "--metrics.prometheus.entryPoint=metrics"
 
 
     volumes: []
@@ -155,7 +144,19 @@ spec:
     # Additional arguments to be passed at Traefik's binary
     # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
     ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
-    additionalArguments: []
+    additionalArguments:
+      - "--accesslog=true"
+      - "--accesslog.format=json"
+      - "--accesslog.fields.defaultmode=keep"
+      - "--accesslog.fields.headers.defaultmode=keep"
+      - "--metrics.prometheus=true"
+      - "--metrics.prometheus.entryPoint=metrics"
+      - "--metrics.prometheus.addEntryPointsLabels=true"
+      - "--metrics.prometheus.addServicesLabels=true"
+      - "--entryPoints.metrics.address=:8082"
+      - "--metrics.prometheus.entryPoint=metrics"
+      - "--log.level=DEBUG"
+      
     #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
     #  - "--log.level=DEBUG"
 
