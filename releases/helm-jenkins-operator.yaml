@@ -235,7 +235,7 @@ spec:
       - name: findbugs
         version: "5.0.0"
       - name: font-awesome-api
-        version: "5.13.0-1"
+        version: "5.14.0-1"
       - name: forensics-api
         version: "0.7.0"
       - name: git-client
