@@ -135,7 +135,7 @@ spec:
       - name: ansicolor
         version: "0.7.0"
       - name: antisamy-markup-formatter
-        version: "2.0"
+        version: "2.1"
       - name: apache-httpcomponents-client-4-api
         version: "4.5.10-2.0"
       - name: authentication-tokens
