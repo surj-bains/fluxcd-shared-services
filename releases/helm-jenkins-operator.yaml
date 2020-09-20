@@ -42,8 +42,9 @@ spec:
       image: jenkins/jenkins:lts
 
       # env contains jenkins container environment variables
-      env: []
-
+      env:
+      - name: JENKINS_OPTS
+        value: --prefix=/build      
       # imagePullPolicy defines policy for pulling images
       imagePullPolicy: Always
 
