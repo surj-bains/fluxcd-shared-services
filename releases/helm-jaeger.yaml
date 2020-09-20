@@ -8,6 +8,6 @@ spec:
   releaseName: jaeger-operator
   chart:
     repository: https://jaegertracing.github.io/helm-charts
-    name: jaegertracing
+    name: jaeger-operator
     version: 2.17.0
 
