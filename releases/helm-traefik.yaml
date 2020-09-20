@@ -157,7 +157,7 @@ spec:
       - "--metrics.prometheus.addServicesLabels=true"
       - "--entryPoints.metrics.address=:8082"
       - "--metrics.prometheus.entryPoint=metrics"
-      - "--log.level=DEBUG"
+      - "--log.level=INFO"
       - "--tracing.serviceName=tracing"
       - "--tracing.jaeger.samplingServerURL=http://jaeger-agent.observability.svc.cluster.local:5778/sampling"
       - "--tracing.jaeger.localAgentHostPort=jaeger-agent.observability.svc.cluster.local:6831"
