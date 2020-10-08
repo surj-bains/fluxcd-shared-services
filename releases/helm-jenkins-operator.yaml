@@ -42,9 +42,7 @@ spec:
       image: jenkins/jenkins:lts
 
       # env contains jenkins container environment variables
-      env:
-      - name: JENKINS_OPTS
-        value: --prefix=/build      
+      env: []   
       # imagePullPolicy defines policy for pulling images
       imagePullPolicy: Always
 
@@ -63,23 +61,7 @@ spec:
 
       # notifications is feature that notify user about Jenkins reconcilation status
       # See https://jenkinsci.github.io/kubernetes-operator/docs/getting-started/latest/notifications/ for more info
-      notifications:
-      - level: info
-        verbose: true
-        name: nslack
-        slack:
-          webHookURLSecretKeySelector:
-            secret:
-              name: jenkins-operator-notification-data
-            key: slack-webhook-url
-      - level: info
-        verbose: true
-        name: nteams
-        teams:
-          webHookURLSecretKeySelector:
-            secret:
-              name: jenkins-operator-notification-data
-            key: teams-webhook-url
+      notifications: []
       # basePlugins are plugins installed and required by the operator
       # Shouldn't contain plugins defined by user
       # You can change their versions here
