@@ -42,9 +42,7 @@ spec:
       image: jenkins/jenkins:lts
 
       # env contains jenkins container environment variables
-      env:
-      - name: JENKINS_OPTS
-        value: --prefix=/build      
+      env: []   
       # imagePullPolicy defines policy for pulling images
       imagePullPolicy: Always
 
@@ -63,23 +61,7 @@ spec:
 
       # notifications is feature that notify user about Jenkins reconcilation status
       # See https://jenkinsci.github.io/kubernetes-operator/docs/getting-started/latest/notifications/ for more info
-      notifications:
-      - level: info
-        verbose: true
-        name: nslack
-        slack:
-          webHookURLSecretKeySelector:
-            secret:
-              name: jenkins-operator-notification-data
-            key: slack-webhook-url
-      - level: info
-        verbose: true
-        name: nteams
-        teams:
-          webHookURLSecretKeySelector:
-            secret:
-              name: jenkins-operator-notification-data
-            key: teams-webhook-url
+      notifications: []
       # basePlugins are plugins installed and required by the operator
       # Shouldn't contain plugins defined by user
       # You can change their versions here
@@ -129,8 +111,6 @@ spec:
       plugins:
       - name: ace-editor
         version: "1.1"
-      - name: analysis-core
-        version: "1.96"
       - name: analysis-model-api
         version: "9.0.0"
       - name: ansicolor
@@ -162,8 +142,6 @@ spec:
       - name: blueocean-display-url
         version: "2.3.1"
       - name: blueocean-events
-        version: "1.24.0"
-      - name: blueocean-executor-info
         version: "1.24.0"
       - name: blueocean-git-pipeline
         version: "1.24.0"
@@ -197,8 +175,6 @@ spec:
         version: "2.5.6"
       - name: build-monitor-plugin
         version: "1.12+build.201809061734"
-      - name: checkstyle
-        version: "4.0.0"
       - name: cloudbees-bitbucket-branch-source
         version: "2.8.0"
       - name: cloudbees-folder
@@ -233,8 +209,6 @@ spec:
         version: "1.7"
       - name: favorite
         version: "2.3.2"
-      - name: findbugs
-        version: "5.0.0"
       - name: font-awesome-api
         version: "5.14.0-1"
       - name: forensics-api
@@ -292,7 +266,7 @@ spec:
       - name: ldap
         version: "1.24"
       - name: lockable-resources
-        version: "2.8"
+        version: "2.10"
       - name: mailer
         version: "1.32.1"
       - name: matrix-auth
@@ -343,10 +317,12 @@ spec:
         version: "1.16.0-6"
       - name: pubsub-light
         version: "1.13"
+      - name: saml
+        version: "1.1.7"        
       - name: scm-api
         version: "2.6.3"
       - name: script-security
-        version: "1.73"
+        version: "1.75"
       - name: simple-theme-plugin
         version: "0.6"
       - name: slack
