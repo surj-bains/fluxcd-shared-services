@@ -1,0 +1,12 @@
+version: v1.0.2
+ingressShim:
+  defaultACMEChallengeType: dns01
+  defaultACMEDNS01ChallengeProvider: route53
+  defaultIssuerKind: ClusterIssuer
+  defaultIssuerName: letsencrypt-prod
+installCRDs: true
+
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::818418065468:role/CTT_Cert_Manager_Route53_Role
+    

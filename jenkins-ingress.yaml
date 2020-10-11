@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins 
+  namespace: continuous-integration 
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - host: a9b50a27a37124f06b85ecd2569acea5-499184010.eu-west-1.elb.amazonaws.com 
+    http:
+      paths:
+      - path: /build
+        backend:
+          serviceName: jenkins-operator-http-jenkins 
+          servicePort: 8080 

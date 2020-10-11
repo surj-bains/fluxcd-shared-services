@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: argocd 
+  namespace: continuous-delivery 
+  annotations:
+    kubernetes.io/ingress.class: nginx 
+spec:
+  rules:
+  - host: cloud.cttexpress.com 
+    http:
+      paths:
+      - path: /delivery
+        backend:
+          serviceName: argo-cd-argocd-server 
+          servicePort: 443 

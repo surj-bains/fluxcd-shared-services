@@ -1,0 +1,17 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins 
+  namespace: continuous-integration 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: cloud.cttexpress.com
+    http:
+      paths:
+      - path: /build
+        backend:
+          serviceName: jenkins-operator-http-jenkins 
+          servicePort: 8080 

@@ -3,27 +3,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: jenkins-operator-jcasc-configuration
-  namespace: continuous-integration  
+  namespace: continuous-integration
 data:
-  1-clouds.yaml: |
+  configuration-as-code.yaml: |
     jenkins:
-      systemMessage: " Seville Software Factory Continuous Integration. </b></p>"
+      systemMessage: "Seville Software Factory Continuous Integration."
       numExecutors: 12
-      location:
-        url: ""
-      globalLibraries:
-        libraries:
-          - defaultVersion: "master"
-            name: "pipeline-library"
-            retriever:
-              modernSCM:
-                scm:
-                  github:
-                    apiUri: "https://github.com/api/v3"
-                    credentialsId: "github-personal-access-token"
-                    id: "https://github.com"
-                    repoOwner: "ssf-sre"
-                    repository: "groovy-jenkins-shared-library"
       clouds:
       - kubernetes:
          containerCap: 10
@@ -57,3 +42,23 @@ data:
                  command:
                  - cat
                  tty: true
+    unclassified:
+     githubpluginconfig:
+       configs:
+         - name: "GitHub"
+           apiUrl: "https://github.com/api/v3"
+           clientCacheSize: 50
+           credentialsId: "github-personal-access-token"
+     gitscm:
+       globalConfigName: jenkins
+       globalConfigEmail: jenkins@domain.local
+       createAccountBasedOnEmail: true
+     globalLibraries:
+           libraries:
+             - name: "pipeline-library"
+               retriever:
+                 modernSCM:
+                   scm:
+                     git:
+                       remote: "https://github.com/ssf-sre/groovy-jenkins-shared-library"
+                       credentialsId: "github-personal-access-token"                                                              

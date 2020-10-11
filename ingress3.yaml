@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana 
+  namespace: monitoring 
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    
+spec:
+  rules:
+  - host: a9b50a27a37124f06b85ecd2569acea5-499184010.eu-west-1.elb.amazonaws.com 
+    http:
+      paths:
+      - path: /monitoring
+        backend:
+          serviceName: prometheus-operator-grafana 
+          servicePort: 80 
+  tls:
+   - secretName: ctt-tls-cert

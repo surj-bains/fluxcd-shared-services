@@ -1,0 +1,22 @@
+image:
+  registry: docker.io
+  repository: bitnami/external-dns
+  tag: 0.7.4-debian-10-r0
+aws:
+  region: eu-west-1
+  roleArn: arn:aws:iam::818418065468:role/External_DNS_Role
+  zoneType: private
+interval: 3m
+policy: upsert-only
+provider: aws
+rbac:
+  create: true
+  serviceAccountAnnotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::818418065468:role/AllowExternalDNS_Role
+  serviceAccountName: external-dns
+registry: txt
+txtOwnerId: Z01519431KDNST8VL5KJC
+domainFilters: ['cloud.cttexpress.com']
+sources:
+  - service
+  - ingress

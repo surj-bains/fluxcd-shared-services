@@ -1,0 +1,19 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: ctt-wildcard              
+spec:
+  secretName: ctt-wildcard       
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: "*.cloud.cttexpress.com"
+  dnsNames:
+  - cloud.cttexpress.com 
+  acme:
+    config:
+    - dns01:
+        provider: route53
+      domains:
+      - "*.cloud.cttexpress.com"
+      - cloud.cttexpress.com
