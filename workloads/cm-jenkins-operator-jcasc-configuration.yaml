@@ -20,9 +20,9 @@ data:
                 scm:
                   github:
                     apiUri: "https://github.com/api/v3"
-                    credentialsId: "bainss-pat-github"
+                    credentialsId: "github-personal-access-token"
                     id: "https://github.com"
-                    repoOwner: "polarpoint-io"
+                    repoOwner: "ssf-sre"
                     repository: "groovy-jenkins-shared-library"
       clouds:
       - kubernetes:
