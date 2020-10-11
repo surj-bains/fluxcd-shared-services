@@ -390,7 +390,7 @@ spec:
         targets: "*/**.groovy"
         description: "Jenkins Operator seeding repository"
         repositoryBranch: master
-        repositoryUrl: https://github.com/polarpoint-io/groovy-jenkins-pipelines.git
+        repositoryUrl: https://github.com/ssf-dev/ctt-groovy-jenkins-pipelines.git
       # Resource limit/request for Jenkins
       # See https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/ for details
       resources:
