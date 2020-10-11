@@ -389,7 +389,7 @@ spec:
         credentialID: github-personal-access-token      
         targets: "*/**.groovy"
         description: "Jenkins Operator seeding repository"
-        repositoryBranch: master
+        repositoryBranch: main
         repositoryUrl: https://github.com/ssf-dev/ctt-groovy-jenkins-pipelines.git
       # Resource limit/request for Jenkins
       # See https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/ for details
